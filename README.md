@@ -12,7 +12,7 @@ If you have any issue using this repository, please contact me at shashi.narayan
 
 ## The Split and Rephrase Benchmark ("benchmark")
 
-It consist of three files:
+It consists of three files:
 
 * final-complexsimple-meanpreserve-intreeorder-full.txt: Complex and Simple Sentences with their semantic identifiers.
 
