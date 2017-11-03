@@ -10,20 +10,19 @@ If you use any of these, please cite our paper:
 
 ## The Split and Rephrase Benchmark ("benchmark")
 
-* final-complexsimple-meanpreserve-intreeorder-full.txt
+It consist of three files:
 
-Format
+* final-complexsimple-meanpreserve-intreeorder-full.txt: Complex and Simple Sentences with their semantic identifiers.
 
-* benchmark_verified_simplifcation
+* benchmark_verified_simplifcation: RDF triples related to each semantic identifier.
 
-* Split-train-dev-test.DONT-CHANGE.json
+* Split-train-dev-test.DONT-CHANGE.json: Train, Development and Test Splits.
 
+and two additional directories:
 
-* "complex-sents" directory
+* "complex-sents" directory: Train, Development and Test complex sentences used as input during testing.
 
-* "modtripleset-linealization" directory
-
-
+* "modtripleset-linealization" directory: Semantic identifier associated with their linearized RDF representation. 
 
 ## Split and Rephrase Models
 
@@ -67,7 +66,7 @@ Please use "extract-modtriple-linearized-tokenized-forafile.py" to generate ".li
 
 Please follow instructions from our [Hybrid Sentence Simplification
 System](https://github.com/shashiongithub/Sentence-Simplification-ACL14). Please
-contact me at shashi.narayan@ed.ac.uk if you any issue.
+contact me at shashi.narayan@ed.ac.uk if you have any issue.
 
 ## Semantically motivated Split and Rephrase Models (SPLIT-MULTISEQ2SEQ and SPLIT-SEQ2SEQ)
 
@@ -78,7 +77,7 @@ python prepare-learn-to-partition.py
 ```
 
 It generates a directory called "mymodel/partition-module." Please
-have a look at our paper to use this data to learn a deterministic
+have a look at our paper to use this data to learn a probabilistic
 model to learn to partition.
 
 ### Learn to Generate
@@ -109,5 +108,5 @@ Reads the references from reference or reference0, reference1, ...\n";
 If more than one reference sentence, it generates multiple reference
 files in "evaluation-directories."
 
-Use multi-bleu.perl to estimate BLEU scores.
+Finally use multi-bleu.perl to estimate BLEU scores.
  
