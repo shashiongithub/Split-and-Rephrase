@@ -28,7 +28,7 @@ and two additional directories:
 
 ## Split and Rephrase Models
 
-Our models uses codes from [Multiple Source NMT Toolkit,
+Our models use codes from [Multiple Source NMT Toolkit,
 Zoph_RNN](https://github.com/isi-nlp/Zoph_RNN) and our [Hybrid
 Sentence Simplification
 System](https://github.com/shashiongithub/Sentence-Simplification-ACL14). To
