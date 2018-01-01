@@ -341,12 +341,16 @@ if __name__ == "__main__":
   print(len(mrid_modifiedtripleset_dict))
   
   print("\nStep B: Read training, dev and test splits")
+  if not os.path.isdir("benchmark"):
+    print("Benchmark not found, perhaps you need to extract it from benchmark.tar.gz")
   with open('benchmark/Split-train-dev-test.DONT-CHANGE.json') as data_file:            
     datasplit = json.load(data_file)
   print(len(datasplit["TEST"]), len(datasplit["VALIDATION"]), len(datasplit["TRAIN"]))
 
   print("\nStep C: Start reading final simplification dataset")
   
+  if not os.path.isdir("mymodel/partition-module"):
+    os.makedirs("mymodel/partition-module")
   f_sym_train_complex = open("mymodel/partition-module/train.complex", "w")
   f_sym_train_compsem = open("mymodel/partition-module/train.complex-semantics", "w")
   f_sym_train_compshape = open("mymodel/partition-module/train.complex-shape", "w")    
