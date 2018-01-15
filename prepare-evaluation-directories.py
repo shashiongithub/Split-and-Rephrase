@@ -15,7 +15,7 @@ def process_sentdata(data, datasplit):
     for item in data[1:]:
         if re.match('COMPLEX-'+str(complexid)+':MR-[0-9]*:SIMPLE-[0-9]*\n', item):
             # print item
-            sents = (" ".join(item.strip().split("\n")[1:])).lower()
+            sents = (" ".join(item.strip().split("\n")[1:]))
             # print sents
             if sents not in simpsents:
                 simpsents[sents] = 1
