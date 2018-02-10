@@ -12,6 +12,8 @@ If you have any issue using this repository, please contact me at shashi.narayan
 
 ## The Split and Rephrase Benchmark ("benchmark")
 
+** We are working on an improved version of this dataset, stay tuned!
+
 It consists of three files:
 
 * final-complexsimple-meanpreserve-intreeorder-full.txt: Complex and Simple Sentences with their semantic identifiers.
