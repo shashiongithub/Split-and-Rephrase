@@ -12,7 +12,7 @@ If you have any issue using this repository, please contact me at shashi.narayan
 
 ## The Split and Rephrase Benchmark ("benchmark")
 
-** We are working on an improved version of this dataset, stay tuned!
+**We are working on an improved version of this dataset, stay tuned!**
 
 It consists of three files:
 
