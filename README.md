@@ -1,6 +1,6 @@
 # Split and Rephrase
 
-**We have found some overlap between training, development and test sets in terms of RDF triples. We are working on an upgarde which we will release in the first week of March 2018.**
+**\* We have found some overlap between training, development and test sets in terms of RDF triples. We are working on an upgarde which we will release in the first week of March 2018.**
 
 This repository releases the split-and-rephrase benchmark and scripts to replicate experiments from [Our EMNLP 2017 paper](http://aclweb.org/anthology/D/D17/D17-1064.pdf). 
 
