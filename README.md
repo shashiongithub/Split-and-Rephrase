@@ -12,7 +12,9 @@ If you have any issue using this repository, please contact me at shashi.narayan
 
 ### Version 1.0 ("benchmark-v1.0")
 
-Changes from the previous version: More categories, Better split.
+Changes from the previous version: More categories, Better split. 
+
+**More details on this dataset coming here**
 
 <!--- [I will add more details here] --->
 
