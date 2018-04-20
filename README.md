@@ -87,9 +87,9 @@ Please follow instructions from our [Hybrid Sentence Simplification
 System](https://github.com/shashiongithub/Sentence-Simplification-ACL14). Please
 contact me at shashi.narayan@ed.ac.uk if you have any issue.
 
-## Semantically motivated Split and Rephrase Models (SPLIT-MULTISEQ2SEQ and SPLIT-SEQ2SEQ)
+### Semantically motivated Split and Rephrase Models (SPLIT-MULTISEQ2SEQ and SPLIT-SEQ2SEQ)
 
-### Learn to partition
+#### Learn to partition
 
 ```
 python prepare-learn-to-partition.py
@@ -99,7 +99,7 @@ It generates a directory called "mymodel/partition-module." Please
 have a look at our paper to use this data to learn a probabilistic
 model to learn to partition.
 
-### Learn to Generate
+#### Learn to Generate
 
 ```
 python prepare-learn-to-generation.py
