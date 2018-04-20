@@ -1,32 +1,45 @@
 # Split and Rephrase
 
-**\* We have found some overlap between training, development and test sets in terms of RDF triples. We are working on an upgarde which we will release in the first week of March 2018.**
+This repository releases the split-and-rephrase benchmark and scripts from [Our EMNLP 2017 paper](http://aclweb.org/anthology/D/D17/D17-1064.pdf). 
 
-This repository releases the split-and-rephrase benchmark and scripts to replicate experiments from [Our EMNLP 2017 paper](http://aclweb.org/anthology/D/D17/D17-1064.pdf). 
-
-If you use any of these, please cite our paper:
+If you use our datasets, please cite our paper:
 
 **Split and Rephrase, Shashi Narayan, Claire Gardent, Shay B. Cohen and Anastasia Shimorina, In the 2017 Conference on Empirical Methods on Natural Language Processing (EMNLP), Copenhagen, Denmark [(bib)](http://aclweb.org/anthology/D/D17/D17-1064.bib)**
 
-> We propose a new sentence simplification task where the aim is to split a complex sentence into a meaning preserving sequence of shorter sentences.  Like sentence simplification, Split-and-Rephrase has the potential of benefiting both natural language processing and societal applications. Because shorter sentences are generally better processed by NLP systems, it could be used as a preprocessing step which facilitates and improves the performance of parsers, semantic role labelers and machine translation systems. It should also be of use for people with reading disabilities because it allows the conversion of longer sentences into shorter ones. This paper makes two contributions towards this new task. First, we create and make available a benchmark consisting of 1,066,115 tuples mapping a single complex sentence to a sequence of sentences expressing the same meaning. Second, we propose five models (from vanilla seq-2-seq to semantically-motivated models) to understand the difficulty of the proposed task.
-
 If you have any issue using this repository, please contact me at shashi.narayan@ed.ac.uk.
 
-## The Split and Rephrase Benchmark ("benchmark")
+## The Split and Rephrase Benchmark
 
-**We are working on an improved version of this dataset, stay tuned!**
+### Version 1.0 ("benchmark-v1.0")
 
-It consists of three files:
+Changes from the previous version: More categories, Better split.
+
+<!--- [I will add more details here] --->
+
+### Version 0.1 ("benchmark-v0.1", deprecated)
+
+This is the version of the dataset reported in our EMNLP paper.
+
+In this version, we had followed a standard practice in Simplification
+literature and split our dataset into the training, validation and test
+subsets such that complex sentences in validation and test sets were
+not seen during training. 
+
+Recently (Feb 18), Jan Botha and Jason Baldridge (Google), kindly informed us that this way of splitting led to a large n-gram overlap between training, development and test sets. We found that this overlap appeared due to the shared RDF triples in our dataset. As a result, we have decided to deprecate the split used in the paper. Instead, we encourage others to use an improved version (benchmark-v1.0) of this dataset. 
+
+<!--- In case you would like to work with this version, we suggest you to identify a better split to address this problem. --->
+
+benchmark-v0.1 consists of following files:
 
 * final-complexsimple-meanpreserve-intreeorder-full.txt: Complex and Simple Sentences with their semantic identifiers.
 
 * benchmark_verified_simplifcation: RDF triples related to each semantic identifier.
 
-* Split-train-dev-test.DONT-CHANGE.json: Train, Development and Test Splits.
+* Split-train-dev-test.DONT-CHANGE.json: Train, Development and Test Splits. (**Removed**)
 
 and two additional directories:
 
-* "complex-sents" directory: Train, Development and Test complex sentences used as input during testing.
+* "complex-sents" directory: Train, Development and Test complex sentences used as input during testing. (**Removed**)
 
 * "modtripleset-linealization" directory: Semantic identifier associated with their linearized RDF representation. 
 
