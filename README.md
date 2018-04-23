@@ -1,8 +1,8 @@
 # Split and Rephrase
 
-This repository releases the split-and-rephrase benchmark and scripts from [Our EMNLP 2017 paper](http://aclweb.org/anthology/D/D17/D17-1064.pdf). 
+This repository contains the split-and-rephrase benchmark and scripts from [Our EMNLP 2017 paper](http://aclweb.org/anthology/D/D17/D17-1064.pdf). 
 
-If you use our datasets, please cite our paper:
+If you use our datasets, please cite the following paper:
 
 **Split and Rephrase, Shashi Narayan, Claire Gardent, Shay B. Cohen and Anastasia Shimorina, In the 2017 Conference on Empirical Methods on Natural Language Processing (EMNLP), Copenhagen, Denmark [(bib)](http://aclweb.org/anthology/D/D17/D17-1064.bib)**
 
@@ -12,22 +12,96 @@ If you have any issue using this repository, please contact me at shashi.narayan
 
 ### Version 1.0 ("benchmark-v1.0")
 
-Changes from the previous version: More categories, Better split. 
+We have extracted this dataset from the complete version of the [WebNLG data](http://webnlg.loria.fr/pages/challenge.html). It consists of following files:
 
-**More details on this dataset coming here**
+* final-complexsimple-meanpreserve-intreeorder-full.txt: Complex and Simple Sentences with their semantic identifiers.
 
-<!--- [I will add more details here] --->
+* webnlg-corpus-release: RDF triples related to each semantic identifier.
+
+* Split-train-dev-test.benchmark-v1.0.json: Train, Development and Test Splits.
+
+#### Improvements over Version 0.1
+
+##### The WebNLG Categories
+
+* **benchmark-v0.1:** It was extracted from an incomplete version of the [WebNLG](http://webnlg.loria.fr/pages/challenge.html) corpus with 8 DBPedia categories (Airport, Astronaut, Building, Food, Monument, SportsTeam, University, WrittenWork).
+
+* **benchmark-v1.0:** It is extracted from the final version of the [WebNLG](http://webnlg.loria.fr/pages/challenge.html) corpus with 15 DBPedia categories (Airport, Building, Food, SportsTeam, Artist, CelestialBody, MeanOfTransportation, University, Astronaut,  City, Monument, WrittenWork, Athlete, ComicsCharacter, Politician).
+
+##### Number of Meaning Preserving (Complex-Simple) Pairs
+
+| Version | # distinct complex sentences | # complex-simple pairs with partitions | # complex-simple pairs without partitions |
+| --- | --- | --- | --- |
+| **benchmark-v0.1** | 5546 | 1098221 | 1945 |
+| **benchmark-v1.0** | 18830 | 1445159 | 6951 |
+
+
+##### Splitting Method
+
+* **benchmark-v0.1:** In this version, we followed standard practice in the Simplification literature. We ensured that complex sentences in validation and test sets are not seen during training by splitting the 5,546 distinct complex sentences into three subsets: Training set (4,438, 80%),
+Validation set (554, 10%) and Test set (554, 10%). This way of splitting does not guarantee that the RDF triples seen in the validation and test sets won't occur in the training set. As a result, it leads to a large n-gram overlaps between the training, validation and test sets. 
+
+* **benchmark-v1.0:** In this version, we ensured that if an RDF triple t: (e1, r, e2) is seen in the validation or test set, it does not occur in the training set. However, e1 or r or e2 may have occurred in the training set with some other RDF triples. This automatically guarantees that the complex sentences in the validation and test sets are not seen in the training set. 
+
+##### Final Numbers of Distinct Complex Sentences 
+
+| Version | Training | Validation | Test |
+| --- | --- | --- | --- |
+| **benchmark-v0.1** | 4438 |  554 |  554 |
+| **benchmark-v1.0** | 16946 |  954 | 930 |
+
+
+##### Overlap Statistics w.r.t. RDF Triples, Entities and Properties
+
+| Version | **benchmark-v0.1**  | **benchmark-v1.0** |
+| --- | --- | --- |
+| RDFs (Train vs Test) | 672 (1025 vs 676) | **0** (3162 vs 352)|
+| RDFs (Train vs Valid)| 671 (1025 vs 675) | **0** (3162 vs 356) |
+| RDFs (Test vs Valid) | 501 (676 vs 675) | 338 (352 vs 356)|
+| Entities (Train vs Test) | 642 (908 vs 644) | 56 (2665 vs 357)|
+| Entities (Train vs Valid)| 634 (908 vs 636) | 56 (2665 vs 360) |
+| Entities (Test vs Valid) | 505 (644 vs 636) | 345 (357 vs 360)|
+| Properties (Train vs Test) | 139 (168 vs 140) | 122 (346 vs 138)|
+| Properties (Train vs Valid)| 132 (168 vs 133) | 119 (346 vs 137) |
+| Properties (Test vs Valid) | 120 (140 vs 133) | 134 (138 vs 137)|
+
+
+##### Overlap Statistics w.r.t. Simple Sentences
+
+| Version | **benchmark-v0.1**  | **benchmark-v1.0** |
+| --- | --- | --- |
+| Total Simple Sentences | 9552 | 31159 |
+| Train | 8840 | 28150 | 
+| Validation | 3765 | 2464 | 
+| Test | 4015 | 2466 | 
+| Train vs Test |  3606 | 3 |
+| Train vs Val |  3425  | 2 |
+| Test vs Val |  2210 | 1918 | 
+| Train vs Test vs Val |  2173 | 2 |
+
+
+
+
+<!---
+1. we may have the same complex sentence occurring with many simplification
+2. perhaps these complex sentences describe a few entities which leads the model to learn to describe the entity rather than simplifying the sentence
+
+so another possibility would be 
+1. to restrict the nb of pairs (in the tg corpus) containing the same complex sentence
+2. to restrict the nb of complex sentences describing the same entity
+--->
+
 
 ### Version 0.1 ("benchmark-v0.1", deprecated)
 
-This is the version of the dataset reported in our EMNLP paper.
+This is the version of the dataset reported in our EMNLP paper. It was extracted from an incomplete version (then available) of the [WebNLG data](http://webnlg.loria.fr/pages/challenge.html).
 
 In this version, we had followed a standard practice in Simplification
 literature and split our dataset into the training, validation and test
 subsets such that complex sentences in validation and test sets were
 not seen during training. 
 
-Recently (Feb 18), Jan Botha and Jason Baldridge (Google), kindly informed us that this way of splitting led to a large n-gram overlap between training, development and test sets. We found that this overlap appeared due to the shared RDF triples in our dataset. As a result, we have decided to deprecate the split used in the paper. Instead, we encourage others to use an improved version (benchmark-v1.0) of this dataset. 
+Recently (Feb 18), Jan Botha and Jason Baldridge (Google), informed us that this way of splitting led to a large n-gram overlap between training, development and test sets. We found that this overlap appeared due to the shared RDF triples in our dataset. As a result, we have decided to deprecate the split used in the paper. Instead, we encourage others to use an improved version (benchmark-v1.0) of this dataset. 
 
 <!--- In case you would like to work with this version, we suggest you to identify a better split to address this problem. --->
 
