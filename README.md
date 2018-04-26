@@ -1,6 +1,6 @@
 # Split and Rephrase
 
-This repository contains the split-and-rephrase benchmark and scripts from [Our EMNLP 2017 paper](http://aclweb.org/anthology/D/D17/D17-1064.pdf). 
+This repository contains the split-and-rephrase benchmark and scripts from our [EMNLP 2017 paper](http://aclweb.org/anthology/D/D17/D17-1064.pdf). 
 
 If you use our datasets, please cite the following paper:
 
@@ -103,7 +103,8 @@ not seen during training.
 
 Recently (Feb 18), Jan Botha and Jason Baldridge (Google), informed us that this way of splitting led to a large n-gram overlap between training, development and test sets. We found that this overlap appeared due to the shared RDF triples in our dataset. As a result, we have decided to deprecate the split used in the paper. Instead, we encourage others to use an improved version (benchmark-v1.0) of this dataset. 
 
-<!--- In case you would like to work with this version, we suggest you to identify a better split to address this problem. --->
+In case you would like to work with this version, we suggest you to use the split of [Aharoni and Goldberg](https://github.com/roeeaharoni/sprp-acl2018).
+
 
 benchmark-v0.1 consists of following files:
 
